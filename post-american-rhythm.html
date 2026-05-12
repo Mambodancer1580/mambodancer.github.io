@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Love of Dance & The American Rhythm Story — Mambodancer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Syne:wght@400;500;600;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F7F4EF;
+  --bg2:#F0EBE1;
+  --bg3:#E8E0D4;
+  --ink:#1A1814;
+  --ink2:#3A3630;
+  --muted:#8C8680;
+  --gold:#A07B3F;
+  --gold2:#C9A05A;
+  --gold3:#E8C98A;
+  --white:#FFFFFF;
+  --line:rgba(26,24,20,0.1);
+  --line-gold:rgba(160,123,63,0.25);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.25rem 3rem;
+  background:rgba(247,244,239,0.95);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--line);
+}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;letter-spacing:0.06em;color:var(--ink);text-decoration:none}
+.nav-logo span{color:var(--gold);font-style:italic}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-family:'Syne',sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-back{font-family:'Syne',sans-serif;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.2s}
+.nav-back:hover{color:var(--ink)}
+
+/* ── POST HERO ── */
+.post-hero{
+  background:var(--ink);
+  padding:6rem 3rem 5rem;
+  border-bottom:1px solid rgba(160,123,63,0.2);
+  position:relative;overflow:hidden;
+}
+.post-hero-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 70% at 80% 50%, rgba(201,160,90,0.07) 0%, transparent 70%);
+}
+.post-hero-svg{position:absolute;inset:0;opacity:0.04}
+.post-hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+.post-breadcrumb{
+  display:flex;align-items:center;gap:0.75rem;
+  font-family:'Syne',sans-serif;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(247,244,239,0.35);margin-bottom:2rem;
+}
+.post-breadcrumb a{color:var(--gold2);text-decoration:none;transition:color 0.2s}
+.post-breadcrumb a:hover{color:var(--gold3)}
+.post-tag-row{display:flex;gap:0.5rem;margin-bottom:1.75rem}
+.post-tag{
+  font-family:'Syne',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;
+  border:1px solid rgba(201,160,90,0.35);color:var(--gold2);
+  padding:0.32rem 0.8rem;border-radius:2px;
+}
+.post-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,5vw,4rem);font-weight:300;line-height:1.1;
+  letter-spacing:-0.01em;color:var(--bg);margin-bottom:1.5rem;
+}
+.post-title em{font-style:italic;color:var(--gold2)}
+.post-subtitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;font-weight:300;font-style:italic;
+  color:rgba(247,244,239,0.55);line-height:1.6;margin-bottom:2.5rem;max-width:600px;
+}
+.post-meta-row{
+  display:flex;align-items:center;gap:1.5rem;
+  font-family:'Syne',sans-serif;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(247,244,239,0.35);
+  padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08);
+}
+.meta-sep{width:16px;height:1px;background:rgba(255,255,255,0.12)}
+.meta-author{color:var(--gold2)}
+
+/* ── ARTICLE ── */
+.article-wrap{max-width:760px;margin:0 auto;padding:5rem 3rem}
+
+/* ── RUNNING TEXT ── */
+.drop-cap::first-letter{
+  font-family:'Cormorant Garamond',serif;
+  font-size:5rem;font-weight:300;font-style:italic;
+  float:left;line-height:0.75;padding-right:0.12em;padding-top:0.08em;
+  color:var(--gold);
+}
+p{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;font-weight:300;line-height:1.9;
+  color:var(--ink2);margin-bottom:1.75rem;
+}
+p strong{font-weight:500;color:var(--ink)}
+p em{font-style:italic;color:var(--ink)}
+
+/* ── HEADINGS ── */
+h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;
+  letter-spacing:-0.01em;line-height:1.15;
+  color:var(--ink);
+  margin-top:4rem;margin-bottom:1.5rem;
+  padding-bottom:1rem;border-bottom:1px solid var(--line);
+}
+h2 em{font-style:italic;color:var(--gold)}
+h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.45rem;font-weight:400;font-style:italic;
+  color:var(--gold);margin-top:2.5rem;margin-bottom:1rem;
+}
+
+/* ── PULL QUOTE ── */
+.pull-quote{
+  margin:3rem 0;
+  padding:2.5rem 2.75rem;
+  border-left:2px solid var(--gold2);
+  background:var(--bg2);
+  position:relative;
+}
+.pull-quote::before{
+  content:'\201C';
+  font-family:'Cormorant Garamond',serif;
+  font-size:5rem;font-weight:300;
+  color:var(--gold3);opacity:0.5;
+  position:absolute;top:-1rem;left:1.5rem;
+  line-height:1;
+}
+.pull-quote p{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:300;font-style:italic;
+  color:var(--ink);line-height:1.6;margin-bottom:0.75rem;
+}
+.pull-quote cite{
+  font-family:'Syne',sans-serif;font-size:0.6rem;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);font-style:normal;
+}
+
+/* ── DANCE CARD ── */
+.dance-cards{display:flex;flex-direction:column;gap:0;margin:3rem 0;border:1px solid var(--line);background:var(--white);box-shadow:0 2px 30px rgba(26,24,20,0.05)}
+.dance-card{
+  display:grid;grid-template-columns:72px 1fr;
+  border-bottom:1px solid var(--line);
+  transition:background 0.2s;
+}
+.dance-card:last-child{border-bottom:none}
+.dance-card:hover{background:var(--bg)}
+.dance-card-num{
+  display:flex;align-items:flex-start;justify-content:center;
+  padding:1.75rem 0 1.75rem;
+  border-right:1px solid var(--line);
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;font-weight:300;font-style:italic;
+  color:var(--gold3);line-height:1;
+  padding-top:1.75rem;
+}
+.dance-card-body{padding:1.75rem 2rem}
+.dance-card-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;font-weight:400;color:var(--ink);margin-bottom:0.3rem;
+}
+.dance-card-origin{
+  font-family:'Syne',sans-serif;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:0.75rem;
+}
+.dance-card-desc{
+  font-family:'Inter',sans-serif;
+  font-size:0.85rem;font-weight:300;line-height:1.75;
+  color:var(--muted);margin-bottom:0;
+}
+
+/* ── TIMELINE ── */
+.timeline{margin:3rem 0;position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold2),var(--gold3),transparent)}
+.tl-item{position:relative;padding:0 0 2.5rem 2rem}
+.tl-item::before{content:'';position:absolute;left:-4px;top:0.35rem;width:8px;height:8px;border-radius:50%;background:var(--gold2);border:2px solid var(--bg)}
+.tl-year{font-family:'Syne',sans-serif;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem}
+.tl-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--ink);margin-bottom:0.4rem}
+.tl-body{font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:300;line-height:1.75;color:var(--muted)}
+
+/* ── DIVIDER ── */
+.section-divider{
+  display:flex;align-items:center;gap:1.5rem;
+  margin:3.5rem 0;
+}
+.div-line{flex:1;height:1px;background:var(--line)}
+.div-mark{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;font-style:italic;color:var(--gold2);
+}
+
+/* ── CLOSING ── */
+.post-closing{
+  margin-top:4rem;padding:3rem;
+  background:var(--ink);
+  border-radius:2px;
+}
+.post-closing p{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-weight:300;font-style:italic;
+  color:rgba(247,244,239,0.7);line-height:1.85;margin-bottom:0;
+}
+.post-closing p em{color:var(--gold2);font-style:normal}
+.post-closing-label{
+  font-family:'Syne',sans-serif;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold2);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;
+}
+.post-closing-label::before{content:'';display:block;width:20px;height:1px;background:var(--gold2)}
+
+/* ── AUTHOR BOX ── */
+.author-box{
+  margin-top:3rem;padding:2rem 2.5rem;
+  border:1px solid var(--line);background:var(--white);
+  display:flex;align-items:center;gap:2rem;
+}
+.author-avatar{
+  width:64px;height:64px;flex-shrink:0;
+  border-radius:50%;background:var(--bg2);
+  border:1px solid var(--line-gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:var(--gold);
+}
+.author-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--ink);margin-bottom:0.3rem}
+.author-bio{font-size:0.82rem;font-weight:300;line-height:1.65;color:var(--muted);margin-bottom:0}
+
+/* ── NAV BETWEEN POSTS ── */
+.post-nav{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--line);
+  margin-top:0;
+}
+.post-nav-item{
+  padding:2.5rem 3rem;text-decoration:none;
+  transition:background 0.2s;
+  border-right:1px solid var(--line);
+}
+.post-nav-item:last-child{border-right:none;text-align:right}
+.post-nav-item:hover{background:var(--bg2)}
+.post-nav-label{font-family:'Syne',sans-serif;font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem}
+.post-nav-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;color:var(--ink)}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(160,123,63,0.2)}
+.footer-left{padding:3rem;border-right:1px solid rgba(255,255,255,0.06)}
+.f-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;font-style:italic;color:var(--bg);text-decoration:none;display:block;margin-bottom:0.75rem}
+.f-tagline{font-size:0.8rem;font-weight:300;line-height:1.7;color:rgba(247,244,239,0.32);max-width:280px}
+.footer-right{padding:3rem;display:flex;align-items:flex-end;justify-content:space-between}
+.f-links{display:flex;gap:2rem}
+.f-links a{font-family:'Syne',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(247,244,239,0.38);text-decoration:none;transition:color 0.2s}
+.f-links a:hover{color:var(--gold2)}
+.f-copy{font-family:'Syne',sans-serif;font-size:0.58rem;letter-spacing:0.15em;color:rgba(247,244,239,0.18)}
+
+@media(max-width:720px){
+  nav{padding:1rem 1.5rem}.nav-links{display:none}
+  .post-hero{padding:4rem 1.5rem 3.5rem}
+  .article-wrap{padding:3.5rem 1.5rem}
+  .pull-quote{padding:1.75rem 1.5rem}
+  .dance-card{grid-template-columns:52px 1fr}
+  .post-nav{grid-template-columns:1fr}
+  .post-nav-item{border-right:none;border-bottom:1px solid var(--line)}
+  .post-nav-item:last-child{text-align:left}
+  footer{grid-template-columns:1fr}
+  .footer-left{border-right:none;border-bottom:1px solid rgba(255,255,255,0.06)}
+  .footer-right{flex-direction:column;gap:1.5rem;align-items:flex-start}
+  .author-box{flex-direction:column;align-items:flex-start;gap:1.25rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Mambo<span>dancer</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#writing">Writing</a></li>
+    <li><a href="index.html#topics">Topics</a></li>
+    <li><a href="index.html#about">About</a></li>
+  </ul>
+  <a href="index.html" class="nav-back">← Back to Blog</a>
+</nav>
+
+<!-- POST HERO -->
+<header class="post-hero">
+  <div class="post-hero-bg"></div>
+  <svg class="post-hero-svg" viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <circle cx="900" cy="250" r="400" fill="none" stroke="#C9A05A" stroke-width="1"/>
+    <circle cx="900" cy="250" r="280" fill="none" stroke="#C9A05A" stroke-width="1"/>
+    <circle cx="900" cy="250" r="160" fill="none" stroke="#C9A05A" stroke-width="1"/>
+    <line x1="0" y1="250" x2="1200" y2="250" stroke="#C9A05A" stroke-width="0.5"/>
+    <line x1="900" y1="0" x2="900" y2="500" stroke="#C9A05A" stroke-width="0.5"/>
+  </svg>
+  <div class="post-hero-inner">
+    <div class="post-breadcrumb">
+      <a href="index.html">Mambodancer</a>
+      <span>/</span>
+      <a href="index.html#writing">Writing</a>
+      <span>/</span>
+      <span>Dance</span>
+    </div>
+    <div class="post-tag-row">
+      <span class="post-tag">Dance</span>
+      <span class="post-tag">History</span>
+      <span class="post-tag">Culture</span>
+    </div>
+    <h1 class="post-title">The Love of Dance &<br>the <em>American Rhythm</em> Story</h1>
+    <p class="post-subtitle">How six dances born from struggle, joy, and cultural fusion became the heartbeat of a movement — and why they still matter today.</p>
+    <div class="post-meta-row">
+      <span class="meta-author">Mambodancer</span>
+      <span class="meta-sep"></span>
+      <span>May 2025</span>
+      <span class="meta-sep"></span>
+      <span>12 min read</span>
+      <span class="meta-sep"></span>
+      <span>Dance · History</span>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE BODY -->
+<article class="article-wrap">
+
+  <p class="drop-cap">Dance is not something I chose. Dance chose me. And I suspect if you have ever truly felt a rhythm move through your body — not just heard it, but <em>felt</em> it settle into your bones and pull your feet off the floor — you know exactly what I mean. There is a moment in every dancer's life when movement stops being something you do and starts being something you <em>are.</em> That moment, for me, came through the American Rhythm dances.</p>
+
+  <p>But before we get personal, let's get historical. Because the dances we know today as American Rhythm — the Cha Cha, the Rumba, the Swing, the Bolero, and the Mambo — did not arrive fully formed in some ballroom somewhere. They were born from centuries of cultural collision, survival, joy, heartbreak, and the irrepressible human need to move.</p>
+
+  <div class="pull-quote">
+    <p>Dance is the hidden language of the soul — and American Rhythm is one of its most expressive dialects.</p>
+    <cite>— On why these dances endure</cite>
+  </div>
+
+  <h2>A Brief History of <em>American Rhythm</em></h2>
+
+  <p>The story of American Rhythm dancing is really the story of America itself — a story of cultures colliding and creating something entirely new. The roots run deep into African rhythmic tradition, Caribbean folk dance, Cuban son, and the social dance halls of New York and Chicago in the early 20th century.</p>
+
+  <p>When enslaved Africans were brought to the Caribbean and the Americas, they brought with them a relationship to rhythm and movement that was fundamentally different from European dance traditions. Where European ballroom emphasized vertical movement, rigid posture, and structured footwork, African-influenced dance moved from the hips, the ground, the core. It was earthy, sensual, communal, and <em>alive.</em></p>
+
+  <p>Over generations, these traditions blended with Spanish, Portuguese, and Indigenous influences across Cuba, Puerto Rico, and the American South. The result was a family of dances so infectious, so human, that they were impossible to contain.</p>
+
+  <div class="section-divider">
+    <span class="div-line"></span>
+    <span class="div-mark">✦</span>
+    <span class="div-line"></span>
+  </div>
+
+  <h2>The Six Dances We Chose — and <em>Why</em></h2>
+
+  <p>When the Arthur Murray and Fred Astaire studios began codifying what would become the American Rhythm syllabus in the mid-20th century, they were not working from scratch. They were documenting living, breathing dances that already had passionate communities behind them. The question wasn't which dances to <em>invent</em> — it was which dances had already proven themselves worthy of the floor.</p>
+
+  <p>Here is the story of each one.</p>
+
+  <div class="dance-cards">
+
+    <div class="dance-card">
+      <div class="dance-card-num">01</div>
+      <div class="dance-card-body">
+        <div class="dance-card-name">Cha Cha</div>
+        <div class="dance-card-origin">Cuba · 1950s</div>
+        <p class="dance-card-desc">The Cha Cha grew directly out of the Mambo — a slower, more playful variation that gave social dancers room to breathe and flirt. Cuban violinist Enrique Jorrín is widely credited with its creation around 1953, after noticing that dancers at clubs were naturally adding an extra step to the Mambo's rhythm. That extra "cha cha cha" — three quick steps that punctuate every phrase — became the defining signature of one of the most joyful dances ever created. It arrived in the United States and took ballrooms by storm because it was accessible, fun, and endlessly expressive. The Cha Cha is where attitude lives. It asks you to be a little bold, a little cheeky, and completely present.</p>
+      </div>
+    </div>
+
+    <div class="dance-card">
+      <div class="dance-card-num">02</div>
+      <div class="dance-card-body">
+        <div class="dance-card-name">Rumba</div>
+        <div class="dance-card-origin">Cuba · Early 20th Century</div>
+        <p class="dance-card-desc">The Rumba is the soul of American Rhythm. If every other dance in the syllabus is a conversation, Rumba is a confession. It traces its origins to the Afro-Cuban musical tradition of the same name — a complex family of secular street dances that emerged in the poor neighborhoods of Havana and Matanzas in the late 19th century. By the time it reached American ballrooms in the 1920s and 1930s, it had been refined into something deeply intimate — a slow, sensuous dialogue between partners built on hip motion, delayed weight transfers, and the remarkable stillness between movements. In Rumba, what you <em>don't</em> do is just as powerful as what you do.</p>
+      </div>
+    </div>
+
+    <div class="dance-card">
+      <div class="dance-card-num">03</div>
+      <div class="dance-card-body">
+        <div class="dance-card-name">East Coast Swing</div>
+        <div class="dance-card-origin">United States · 1940s</div>
+        <p class="dance-card-desc">Swing is pure American joy. It grew from the Lindy Hop — the electrifying partner dance born in Harlem's Savoy Ballroom in the late 1920s, named after Charles Lindbergh's 1927 transatlantic flight. As big band jazz swept the country through the 1930s and 40s, the Lindy evolved and spread, eventually getting codified into what we now call East Coast Swing for ballroom competition and social dance purposes. What makes Swing special is its democratic spirit — it was never a dance of the elite. It belonged to everybody who showed up to the hall. Its triple-step bounce, its playful breaks, its air steps and spins — all of it reflects a culture that knew how to find joy even in hard times.</p>
+      </div>
+    </div>
+
+    <div class="dance-card">
+      <div class="dance-card-num">04</div>
+      <div class="dance-card-body">
+        <div class="dance-card-name">Bolero</div>
+        <div class="dance-card-origin">Cuba / Spain · 19th Century</div>
+        <p class="dance-card-desc">Bolero is the poet of the group. While technically the slowest dance in American Rhythm, it is in many ways the most demanding — because it asks partners to move with the kind of grace, control, and emotional depth that can only come from genuine mastery. The Cuban Bolero emerged in the late 1800s as a romantic song-and-dance form deeply rooted in lyrical expression. As a ballroom dance, it sits in a unique position — blending the rise and fall of smooth dancing with the hip action of rhythm — creating a style that is neither fully one nor the other, but something altogether more beautiful. When you dance Bolero well, it looks like slow-motion poetry. When you feel it well, it is something close to prayer.</p>
+      </div>
+    </div>
+
+    <div class="dance-card">
+      <div class="dance-card-num">05</div>
+      <div class="dance-card-body">
+        <div class="dance-card-name">Mambo</div>
+        <div class="dance-card-origin">Cuba / New York · 1940s–1950s</div>
+        <p class="dance-card-desc">The Mambo is where this blog gets its name — and for good reason. Few dances in history have carried such explosive cultural force. Born from the collision of Afro-Cuban son and American jazz, the Mambo exploded into public consciousness in the late 1940s through artists like Pérez Prado and Tito Puente, and found its spiritual home at the Palladium Ballroom in New York City — where Black, Latino, and white dancers shared a floor and created something entirely new together. The Mambo is fire. It is sharp breaks, staccato timing, big personality, and uncompromising presence. It does not ask you to be comfortable. It asks you to be <em>alive.</em></p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-divider">
+    <span class="div-line"></span>
+    <span class="div-mark">✦</span>
+    <span class="div-line"></span>
+  </div>
+
+  <h2>A Timeline of the <em>Rhythm Revolution</em></h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">Late 1800s</div>
+      <div class="tl-title">The Roots Take Hold</div>
+      <p class="tl-body">Afro-Cuban musical and dance traditions — the son, the rumba, the bolero — begin forming in the streets of Havana and Matanzas, blending African rhythmic complexity with Spanish melodic tradition.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1920s – 1930s</div>
+      <div class="tl-title">The Harlem Renaissance & Lindy Hop</div>
+      <p class="tl-body">The Savoy Ballroom opens in Harlem (1926). The Lindy Hop is born. Big band jazz sweeps the country. Cuban Rumba begins appearing in American clubs and Broadway shows. The cultural cross-pollination is already underway.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1940s</div>
+      <div class="tl-title">Mambo Madness & the Palladium Era</div>
+      <p class="tl-body">Pérez Prado records the first Mambo hits in Havana. Tito Puente, Tito Rodriguez, and others bring the sound to New York. The Palladium Ballroom on Broadway becomes the epicenter of a Latin dance revolution that crosses every racial and cultural boundary.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1953 – 1955</div>
+      <div class="tl-title">The Cha Cha Arrives</div>
+      <p class="tl-body">Enrique Jorrín observes dancers adding a triple step to the Mambo and writes music to match it. The Cha Cha is born. It spreads from Havana to New York to every dance studio in America with remarkable speed.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1960s – 1970s</div>
+      <div class="tl-title">Codification & Competition</div>
+      <p class="tl-body">American ballroom organizations formalize the American Rhythm syllabus. Cha Cha, Rumba, East Coast Swing, Bolero, and Mambo become the five pillars. The dances move from social halls to competition floors — but never lose their street-level soul.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">Today</div>
+      <div class="tl-title">The Tradition Lives</div>
+      <p class="tl-body">American Rhythm dances are practiced in studios, competitions, social dances, and living rooms across the world. Their stories — of migration, fusion, joy, and human connection — are more relevant than ever.</p>
+    </div>
+  </div>
+
+  <div class="section-divider">
+    <span class="div-line"></span>
+    <span class="div-mark">✦</span>
+    <span class="div-line"></span>
+  </div>
+
+  <h2>Why <em>These</em> Six Dances</h2>
+
+  <p>People sometimes ask why these particular dances — why not Salsa, which is arguably more popular today? Why not West Coast Swing, or Cumbia, or any number of other incredible Latin and rhythm styles?</p>
+
+  <p>The honest answer is that these six dances chose us as much as we chose them. Each one represents a distinct emotional register, a distinct relationship between partners, a distinct conversation with the music. Together they form something like a complete emotional vocabulary:</p>
+
+  <p><strong>Cha Cha</strong> is playfulness and wit. <strong>Rumba</strong> is depth and intimacy. <strong>Swing</strong> is freedom and joy. <strong>Bolero</strong> is grace and longing. <strong>Mambo</strong> is power and presence.</p>
+
+  <p>When you study all five together, you are not just learning dance steps. You are learning how to inhabit different emotional states fully — how to be joyful in your body, how to be powerful, how to be tender, how to be free. There is no better classroom for that kind of learning than the dance floor.</p>
+
+  <div class="pull-quote">
+    <p>The dance floor does not lie. Whatever you are carrying — confidence, fear, grief, joy — it will show. That is not a warning. That is an invitation.</p>
+    <cite>— Mambodancer</cite>
+  </div>
+
+  <h2>The Deeper <em>Why</em></h2>
+
+  <p>Beyond history and technique, there is a reason these dances have endured through decades of cultural change, through the rise and fall of musical trends, through wars and migrations and revolutions in taste. They endure because they are <em>human.</em></p>
+
+  <p>Every one of these dances was born from people who had every reason not to dance — people who were poor, displaced, marginalized, oppressed — and chose to dance anyway. Chose to take whatever floor they had and make it sacred. Chose rhythm over resignation. That spirit is baked into every step, every hip motion, every held count.</p>
+
+  <p>When I dance the Mambo, I am not just dancing. I am standing in a lineage that stretches from the streets of Havana to the Palladium Ballroom to wherever I happen to be right now. I am honoring something that was passed down through bodies, not books.</p>
+
+  <p>That is why I dance. That is why I write about dance. And that is why, if you have ever thought about learning — the answer is yes. The floor is waiting. The rhythm is already inside you.</p>
+
+  <div class="post-closing">
+    <div class="post-closing-label">A Final Note</div>
+    <p>These dances belong to everyone who steps onto the floor with an open heart. They were built on borrowed rhythms, mixed traditions, and shared joy. <em>That</em> is their greatest lesson: that something beautiful can always be made from the meeting of different worlds. Keep dancing.</p>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">M</div>
+    <div>
+      <div class="author-name">Mambodancer</div>
+      <p class="author-bio">Writer, dancer, and lifelong student of the floor. Based in San Antonio, TX. Writing about dance, music, faith, leadership, and the life in between.</p>
+    </div>
+  </div>
+
+</article>
+
+<!-- POST NAV -->
+<nav class="post-nav">
+  <a href="index.html" class="post-nav-item">
+    <div class="post-nav-label">← Back to</div>
+    <div class="post-nav-title">All Writing</div>
+  </a>
+  <a href="index.html#writing" class="post-nav-item">
+    <div class="post-nav-label">Up Next →</div>
+    <div class="post-nav-title">More from the Blog</div>
+  </a>
+</nav>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <a href="index.html" class="f-logo">Mambodancer</a>
+    <p class="f-tagline">Stories from the dance floor and the boardroom — written with honesty and intention.</p>
+  </div>
+  <div class="footer-right">
+    <div class="f-links">
+      <a href="index.html#writing">Writing</a>
+      <a href="index.html#topics">Topics</a>
+      <a href="index.html#about">About</a>
+    </div>
+    <span class="f-copy">© 2025 Mambodancer</span>
+  </div>
+</footer>
+
+</body>
+</html>
